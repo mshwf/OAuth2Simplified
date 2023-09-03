@@ -1,0 +1,21 @@
+﻿@page
+@model OAuth2Simplified.Pages.GitHub.ReposModel
+@{
+    ViewData["Title"] = "Repos";
+}
+@{
+    @if (AppSession.GitHubAccessToken != null)
+    {
+        <h3>Repos:</h3>
+        <ul>
+            @foreach (var item in Model.Repos)
+            {
+                <li>@item.Name - <a href="@(item.Html_url)" target="_blank">Visit</a></li>
+            }
+        </ul>
+    }
+    else
+    {
+        <h3>You are not authorized to view this page, please <a href="/github">login</a> first.</h3>
+    }
+}

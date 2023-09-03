@@ -1,0 +1,16 @@
+﻿@page "/github"
+@model OAuth2Simplified.Pages.GitHub.IndexModel
+@{
+    ViewData["Title"] = "GitHub";
+}
+
+<div class="text-center">
+    @if (AppSession.GitHubAccessToken != null)
+    {
+        <h3>Welcome, you can view your repos <a href="/github/repos">here</a></h3>
+    }
+    else
+    {
+        <h3 class="display-4">Welcome, first you need to <a asp-page-handler="Login">login</a> using your GitHub credentials</h3>
+    }
+</div>

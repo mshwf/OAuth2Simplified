@@ -1,0 +1,16 @@
+﻿@page "/google"
+@model OAuth2Simplified.Pages.Google.IndexModel
+@{
+    ViewData["Title"] = "Google";
+}
+
+<div class="text-center">
+    @if (AppSession.GoogleAccessToken != null)
+    {
+        <h3>Welcome, see your user info <a href="/google/userInfo">here</a></h3>
+    }
+    else
+    {
+        <h3 class="display-4">Welcome, first you need to <a asp-page-handler="Login">login</a> using your Google credentials</h3>
+    }
+</div>
